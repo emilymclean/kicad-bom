@@ -13,7 +13,7 @@ runs:
   image: 'docker://ghcr.io/benmmclean/kicadbom:2.0.0'
   args:
     - ${{ inputs.input-file }}
-    - ${{ inputs.output-directory }}
+    - ${{ inputs.output-file }}
 branding:
   icon: 'cpu'
   color: 'green'
