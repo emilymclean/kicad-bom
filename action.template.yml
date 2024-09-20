@@ -1,0 +1,19 @@
+name: 'KiCad BOM'
+description: 'Generates a BOM for a specified schematic and places them in a specified directory'
+author: 'Emily McLean'
+inputs:
+  input-file:
+    description: 'The PCB file to process'
+    required: true
+  output-file:
+    description: 'The name of the resulting CSV BOM'
+    required: true
+runs:
+  using: 'docker'
+  image: '{{ .image }}'
+  args:
+    - ${{`{{ inputs.input-file }}`}}
+    - ${{`{{ inputs.output-directory }}`}}
+branding:
+  icon: 'cpu'
+  color: 'green'
