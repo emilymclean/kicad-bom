@@ -13,7 +13,7 @@ runs:
   image: '{{ .image }}'
   args:
     - ${{`{{ inputs.input-file }}`}}
-    - ${{`{{ inputs.output-directory }}`}}
+    - ${{`{{ inputs.output-file }}`}}
 branding:
   icon: 'cpu'
   color: 'green'
