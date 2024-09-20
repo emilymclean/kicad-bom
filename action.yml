@@ -10,10 +10,10 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/benmmclean/kicadbom:2.0.0'
   args:
     - ${{ inputs.input-file }}
-    - ${{ inputs.output-file }}
+    - ${{ inputs.output-directory }}
 branding:
   icon: 'cpu'
   color: 'green'
