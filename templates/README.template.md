@@ -14,7 +14,7 @@ Generates a CSV BOM for a specified schematic
 
 ## Example usage
 ```
-uses: {{{ env.ACTION_REPO }}}@{{{ env.ACTION_VERSION }}}
+uses: {{{ env.ACTION_REPO }}}@v{{{ env.ACTION_VERSION }}}
 with:
   input-file: schematic.kicad_sch
   output-file: schematic.csv
