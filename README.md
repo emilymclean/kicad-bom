@@ -14,7 +14,7 @@ Generates a CSV BOM for a specified schematic
 
 ## Example usage
 ```
-uses: BenMMcLean/KicadBOM@v1
+uses: BenMMcLean/kicad-bom@2.0.1
 with:
   input-file: schematic.kicad_sch
   output-file: schematic.csv
