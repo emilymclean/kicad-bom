@@ -1,0 +1,49 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches: [ master, main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          repository: BenMMcLean/ErgoMax
+          path: proj
+      - name: Render template
+        id: render_template
+        uses: chuhlomin/render-template@v1
+        with:
+          template: templates/action.template.yml
+          result_path: action.yml
+          vars: |
+            image: Dockerfile
+      - uses: ./
+        with:
+          input-file: proj/ErgoMaxReversible/ErgoMaxReversible.kicad_sch
+          output-file: test.csv
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test-csv
+          path: test.csv
+  test-readme-generation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Update README.md
+        uses: recih/template-render-action@v1.0.2
+        env:
+          ACTION_REPO: ${{ github.repository }}
+          ACTION_VERSION: v1.0.0
+        with:
+          template-file: templates/README.template.md
+          output-file: README.md
+          engine: mustache
+      - name: Cat
+        run: cat README.md
