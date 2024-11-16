@@ -10,7 +10,7 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/emilymclean/kicad-bom:2.0.3'
+  image: 'docker://ghcr.io/emilymclean/kicad-bom:2.0.4'
   args:
     - ${{ inputs.input-file }}
     - ${{ inputs.output-file }}
