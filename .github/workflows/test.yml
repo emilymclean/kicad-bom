@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          repository: BenMMcLean/ErgoMax
+          repository: emilymclean/ErgoMax
           path: proj
       - name: Render template
         id: render_template
@@ -35,9 +35,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Update README.md
-        uses: recih/template-render-action@v1.0.2
+        uses: emilymclean/template-render-action@v1.0.2
         env:
           ACTION_REPO: ${{ github.repository }}
           ACTION_VERSION: v1.0.0
